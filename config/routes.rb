@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'home#top'
 #ユーザー側ルート
   devise_for :users, controllers: {
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'home#top'
-    resources :users, onry: [:index, :show, :edit, :update]
+    resources :themes
   end
 
 

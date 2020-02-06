@@ -1,0 +1,13 @@
+theme#new
+
+<h2>新規テーマ登録画面</h2>
+
+<%= form_for(@theme) do |f| %>
+
+<div class="field">
+    <label class="name">リキュール名</label>
+    <%= f.text_field :name %>
+</div>
+
+<div class="field">
+    <lebel class="introduction">説明文</label>
