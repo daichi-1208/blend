@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'home#top'
-    resources :themes
+    resources :themes, except: [:destroy]
   end
 
 

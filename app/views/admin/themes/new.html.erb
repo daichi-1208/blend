@@ -3,27 +3,22 @@ theme#new
 <h2>新規テーマ登録画面</h2>
 
 <%= form_for(@theme, url: {controller: "themes", action: "create"}) do |f| %>
-
     <div class="field">
         <label class="image">テーマ画像</label>
         <%= f.attachment_field :image %>
     </div>
-
     <div class="field">
         <label class="name">リキュール名</label>
         <%= f.text_field :name %>
     </div>
-
     <div class="field">
         <lebel class="introduction">説明文</label>
         <%= f.text_field :introduction %>
     </div>
-
     <div class="status">
         <label class="status">公開</label>
         <%= f.select :is_active, [["する","true"],["しない","false"]], :prompt=>"選択してください" %>
     </div>
-
     <div class="submit">
         <%= f.submit "登録する" %>
     </div>
