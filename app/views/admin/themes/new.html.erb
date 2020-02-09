@@ -5,7 +5,8 @@ theme#new
 <%= form_for(@theme, url: {controller: "themes", action: "create"}) do |f| %>
 
     <div class="field">
-        <label class="image">画像</label>
+        <label class="image">テーマ画像</label>
+        <%= f.attachment_field :image %>
     </div>
 
     <div class="field">

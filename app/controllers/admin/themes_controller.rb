@@ -1,6 +1,7 @@
 class Admin::ThemesController < ApplicationController
 
     def index
+        @themes = Theme.all
 
     end
 
@@ -17,12 +18,21 @@ class Admin::ThemesController < ApplicationController
         end
     end
 
-    def edit
+    def show
+        @theme = Theme.find(params[:id])
+    end
 
+    def edit
+        @theme = Theme.find(params[:id])
     end
 
     def update
-
+        @theme = Theme.find(params[:id])
+        if @theme.update(theme_params)
+            redirect_to admin_theme_path(@theme)
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -31,7 +41,7 @@ class Admin::ThemesController < ApplicationController
 
     private
         def theme_params
-            perams.requre(:theme).permit(:name, :introduction, :is_active, :image)
+            params.require(:theme).permit(:name, :introduction, :is_active, :image)
         end
     
 end
