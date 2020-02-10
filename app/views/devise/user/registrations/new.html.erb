@@ -1,5 +1,5 @@
 <div class ="container">
-  <div class="mx-auto" style="width: 300px;">
+  <div class="mx-auto" style="width: 500px;">
 
     <h2 class="text-center">新規登録</h2>
 
@@ -30,7 +30,11 @@
     </font><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
-
+<br>
+    <div class="checkbox">
+      <%= f.check_box :agreement %><%= f.label :あなたが20歳以上の場合はチェックを入れてください %>
+    </div>
+<br>
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
