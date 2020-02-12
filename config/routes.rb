@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   } 
 
   resources :users
+  resources :themes, only: [:index, :show]
 #ここまで
 
 #管理者側ルート
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'home#top'
     resources :themes, except: [:destroy]
+    resources :users
   end
 
 

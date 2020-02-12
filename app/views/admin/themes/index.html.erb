@@ -1,20 +1,30 @@
-themes#index
-
-<h2>お題一覧</h2>
-
-<div class="new-theme-path">
-    <%= link_to "新規テーマ登録", new_admin_theme_path, class:"btn btn-outline-primary" %>
+<div class ="container admin-theme-index">
+	<div class="mx-auto" style="width: 700px;">
+        <h4 class="text-center">お題一覧</h4>
+        <div class="new-theme-path">
+            <div class="text-center">
+                <%= link_to "新規お題登録", new_admin_theme_path, class:"btn btn-warning" %>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <% @themes.each do|theme| %>
+                <div class="col-4">
+                    <div class="theme-image">
+                        <%= link_to admin_theme_path(theme.id) do %><%= attachment_image_tag theme, :image, :fill, 230, 200, format: "jpg" %>
+                            <% end %>
+                    </div>
+                    <div class="theme-name">
+                        <%= theme.name %>
+                        <% if theme.is_active? %>
+                            <p>公開中</p>
+                            <% else %>
+                            <p>非公開</p>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>
-
-<% @themes.each do|theme| %>
-    <%= theme.id %>
-    <%= link_to admin_theme_path(theme.id) do %><%= attachment_image_tag theme, :image, :fill, 200, 150, format: "jpg" %>
-    <% end %>
-    <%= theme.name %>
-    <% if theme.is_active? %>
-        <p>公開中</p>
-        <% else %>
-        <p>非公開</p>
-    <% end %>
-<% end %>
 
