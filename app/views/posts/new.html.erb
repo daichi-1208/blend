@@ -1,1 +1,26 @@
 new#
+
+<div class="create-post">
+    <%= form_for(@post) do |f| %>
+        <%= f.label :カクテル名 %><br>
+        <%= f.text_field :name %>
+        <br>
+        <%= f.label :カクテル説明 %><br>
+        <%= f.text_field :introduction %>
+        <br>
+            <div class="materials-form">
+                <%= f.fields_for :materials do |i| %>
+                    <%= f.label :材料 %> <%= i.text_field :name %>
+                    <br>
+                    <%= f.label :分量 %> <%= i.text_field :quantity %>
+                <% end %>
+            </div>
+        <br>
+            <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
+            <%= text_field_tag 'post[tag_list]', @post.tag_list, :class => "form-control" %>
+        <br>
+        <div class="submit">
+            <%= f.submit "登録する" %>
+        </div>
+    <% end %>
+</div>

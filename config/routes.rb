@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :themes, only: [:index, :show]
+  resources :posts
 #ここまで
 
 #管理者側ルート
