@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :agreement, :acceptance =>true
+
+    has_many :posts
+    
 end
