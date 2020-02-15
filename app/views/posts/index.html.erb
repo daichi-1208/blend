@@ -1,1 +1,16 @@
 posts#index
+<!-- 各お題に紐づいた投稿一覧を出したい -->
+
+<%= link_to "このお題でカクテル作りに挑戦!!", new_post_path, class:"btn btn-outline-primary"%>
+
+
+<h2 class="text-center">みんなが作ったカクテル</h2>
+<div class="theme-post-index">
+    <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %><%= attachment_image_tag post, :image, :fill, 200, 150, format: "jpg" %>
+        <% end %><br>
+        <%= post.name %><br>
+        <%= post.introduction %>
+    <% end %>
+</div>
+
