@@ -1,1 +1,14 @@
-show#post
+<br>
+<div class="text-center">
+    <div class="post-show">
+        <%= attachment_image_tag @post, :image, :fill, 230, 200, size:"300x270", fallback: "no_image.jpg" %><br>
+        <%= @post.name %><br>
+        <%= @post.introduction %><br>
+        <div class="m-each">
+            <% @post.materials.each do |m| %>
+                <%= m.name %>
+                <%= m.quantity %>ml
+            <% end %>
+        </div>
+    </div>
+</div>
