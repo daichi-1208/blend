@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   } 
 
   resources :users
-  resources :themes, only: [:index, :show]
-  resources :posts
+    resources :themes, only: [:index, :show] do
+    resources :posts
+    end
 #ここまで
 
 #管理者側ルート

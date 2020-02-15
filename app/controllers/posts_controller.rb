@@ -9,16 +9,18 @@ class PostsController < ApplicationController
     end
 
     def new
+        @theme = Theme.find(params[:theme_id])
         @post = Post.new
         @post.materials.build
     end
 
     def create
-        @post = Post.new(post_params)
-        @post.user_id = current_user.id
-        if  post.save
-            redirect_to posts_path
+        @post = current_user.posts.new(post_params)
+        @post.theme_id = params[:theme_id]
+        if  @post.save!
+            redirect_to theme_path(params[:theme_id])
             else
+            @theme = Theme.find(params[:theme_id])
             render :new
         end
     end
@@ -37,6 +39,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:name, :material, :quantity, :image, :introduction, :tag_list, materials_attributes: [:name, :quantity])
+        params.require(:post).permit(:name, :image, :introduction, :tag_list, materials_attributes: [:name, :quantity])
     end
 end

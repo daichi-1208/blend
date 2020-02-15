@@ -1,7 +1,11 @@
-new#
+<h1>新規カクテル投稿</h1>
 
-<div class="create-post">
-    <%= form_for(@post) do |f| %>
+<div class="create-theme-post">
+    <%= form_for [@theme, @post] do |f| %>
+        <div class="field">
+            <label class="image">カクテル画像</label>
+            <%= f.attachment_field :image %>
+        </div>
         <%= f.label :カクテル名 %><br>
         <%= f.text_field :name %>
         <br>
@@ -15,9 +19,6 @@ new#
                     <%= f.label :分量 %> <%= i.text_field :quantity %>
                 <% end %>
             </div>
-        <br>
-            <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-            <%= text_field_tag 'post[tag_list]', @post.tag_list, :class => "form-control" %>
         <br>
         <div class="submit">
             <%= f.submit "登録する" %>
