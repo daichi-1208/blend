@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-
-
     def show
         @user = User.find(params[:id])
         @theme = Theme.find(params[:id])
@@ -13,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @customer = current_user
+        @user = current_user
         if @user.update(user_params)
             redirect_to user_path
             else
@@ -23,7 +21,7 @@ class UsersController < ApplicationController
 
     private
 	def user_params
-		params.require(:user).permit(:name,:introduction,:email,:password)
+		params.require(:user).permit(:name,:introduction,:email,:password,:image)
 	end
 
 end

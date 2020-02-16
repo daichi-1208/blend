@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
          validates :agreement, :acceptance =>true
 
+    attachment :image
     has_many :posts
     has_many :favorites
     

@@ -25,12 +25,13 @@
                 <div class="col-sm-1">
                     <p>ml</p>
                 <div class="col-sm-2">
-                    <%= f.add_nested_fields_link :materials, "追加" %><%= i.remove_nested_fields_link '削除' %>
+                    <%= i.remove_nested_fields_link '削除' %>
                 </div>
             </div>
         <% end %>
         <div class="submit">
             <%= f.submit "登録する" %>
         </div>
+        <%= f.add_nested_fields_link :materials, "追加", class: "btn btn-outline-primary", type: "button" %>
     <% end %>
 </div>

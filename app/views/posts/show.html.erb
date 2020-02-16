@@ -20,6 +20,6 @@
         <p><span>お気に入り登録: </span><%= link_to @post.favorites.count, theme_post_favorites_path(@post.theme.id, @post.id), method: :post %></p>
     <% end %>
 <% else %>
-    <p><span>お気に入り数: </span><%= post.favorites.count %></p>
+    <p><span>お気に入り数: </span><%= @post.favorites.count %></p>
 <% end %>
 <!-- ここまで -->
