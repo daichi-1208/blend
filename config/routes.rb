@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'favorites/create'
+  get 'favorites/destroy'
   root 'home#top'
 #ユーザー側ルート
   devise_for :users, controllers: {
@@ -11,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :users
     resources :themes, only: [:index, :show] do
-    resources :posts
+      resources :posts, except: [:edit] do
+        resource :favorites, only: [:create, :destroy]
+      end
     end
 #ここまで
 

@@ -5,13 +5,13 @@
     <h2><strong><%= @theme.name %></strong></h2>
     <%= @theme.introduction %>
 </div>
-
+<br>
 <div class="text-center">
     <div class="create-post">
-        <%= link_to "このお題でオリジナルカクテルを作る", new_theme_post_path(@theme.id) %>
+        <%= link_to "このお題でオリジナルカクテルを作る", new_theme_post_path(@theme.id), class:"btn page-link text-dark d-inline-block" %>
     </div>
 </div>
-
+<br>
 <h2 class="text-center">みんなの作ったカクテル</h2>
 
 <div class="text-center">

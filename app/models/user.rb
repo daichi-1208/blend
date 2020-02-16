@@ -7,5 +7,6 @@ class User < ApplicationRecord
          validates :agreement, :acceptance =>true
 
     has_many :posts
+    has_many :favorites
     
 end
