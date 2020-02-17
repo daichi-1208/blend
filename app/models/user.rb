@@ -9,5 +9,6 @@ class User < ApplicationRecord
     attachment :image
     has_many :posts
     has_many :favorites
-    
+
+
 end

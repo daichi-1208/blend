@@ -13,13 +13,13 @@
 </div>
 <br>
 <h2 class="text-center">みんなの作ったカクテル</h2>
-
+<br>
 <div class="text-center">
     <div class="row">
         <% @posts.each do |post| %>
-            <div class="col-4">
+            <div class="col-4 mb-1">
                 <%= link_to theme_post_path(:theme_id => @theme.id, :id => post.id) do %><%= attachment_image_tag post, :image, :fill, 230, 200, size:"150x150", fallback: "no_image.jpg" %>
-                <% end %>
+                <% end %><br>
                 <%= post.name %><br>
                 <%= post.introduction %>
             </div>
