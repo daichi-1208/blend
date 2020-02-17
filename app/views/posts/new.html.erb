@@ -17,20 +17,21 @@
         <%= f.nested_fields_for :materials do |i| %>
             <div class="form-group row">
                 <div class="col-sm-5">
-                    <%= f.label :材料 %><%= i.text_field :name, class:"form-control" %>
+                    <%= f.label :材料 %><%= i.text_field :name, class:"form-control mb-2" %>
                 </div>
                 <div class="col-sm-3">
-                    <%= f.label :分量 %><%= i.text_field :quantity, class:"form-control" %>
+                    <%= f.label :分量 %><%= i.text_field :quantity, class:"form-control mb-2" %>
                 </div>
                 <div class="col-sm-1">
                     <p>ml</p>
                 <div class="col-sm-2">
-                    <%= f.add_nested_fields_link :materials, '追加' %><%= i.remove_nested_fields_link '削除' %>
+                    <%= i.remove_nested_fields_link '削除' %>
                 </div>
             </div>
         <% end %>
         <div class="submit">
             <%= f.submit "登録する" %>
         </div>
+        <%= f.add_nested_fields_link :materials, "追加", class: "btn btn-outline-primary", type: "button" %>
     <% end %>
 </div>
