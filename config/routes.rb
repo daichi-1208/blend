@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
-  get 'favorites/create'
-  get 'favorites/destroy'
+  #get 'relationships/create'
+  #get 'relationships/destroy'
+  #get 'favorites/create'
+  #get 'favorites/destroy'
   root 'home#top'
 #ユーザー側ルート
   devise_for :users, controllers: {
@@ -11,12 +13,17 @@ Rails.application.routes.draw do
     registrations: 'devise/user/registrations'
   } 
 
-  resources :users
-    resources :themes, only: [:index, :show] do
-      resources :posts, except: [:edit] do
-        resource :favorites, only: [:create, :destroy]
-      end
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member # 追加
+    get :followers, on: :member # 追加
+  end
+    
+  resources :themes, only: [:index, :show] do
+    resources :posts, except: [:edit] do
+      resource :favorites, only: [:create, :destroy]
     end
+  end
 #ここまで
 
 #管理者側ルート

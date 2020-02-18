@@ -1,16 +1,47 @@
 <br>
-<div class="text-center">
-    <div class="post-show">
-        <%= attachment_image_tag @post, :image, :fill, 230, 200, size:"300x270", fallback: "no_image.jpg" %><br>
-        <%= @post.name %><br>
-        <%= @post.introduction %><br>
-        <div class="m-each">
-            <% @post.materials.each do |m| %>
-                <%= m.name %>
-                <%= m.quantity %>ml
-            <% end %>
+<div class="row">
+    <div class="col-7">
+        <div class="text-center">
+            <%= attachment_image_tag @post, :image, :fill, 230, 200, size:"300x300", fallback: "no_image.jpg" %>
         </div>
     </div>
+    <div class="col-5">
+        <h5><%= @user.name %> さんが作りました</h5>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <%= link_to user_path(@user) do %>
+                        <%= attachment_image_tag @user, :image, size:"130x130", fallback: "no_image.jpg" %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= @user.introduction %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="fav-user">
+            <p>バーテンダー戦闘力:</p>
+            <p class="text-center">お気に入り登録</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <tbody>
+            <tr>
+                            <%= @post.name %><br>
+                            <%= @post.introduction %><br>
+                            <div class="m-each">
+                                <% @post.materials.each do |m| %>
+                                    <%= m.name %>
+                                    <%= m.quantity %>ml
+                                <% end %>
+                            </div>
+        </tbody>
+    </table>
+
 </div>
 <!-- 追加 -->
 <% if user_signed_in? %>
