@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">about <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home/about">about <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/themes">お題</a>
@@ -34,7 +34,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">ユーザー設定</a>
-          <a class="dropdown-item" href="#">ログアウト</a>
+          <%= link_to destroy_user_session_path, method: :delete do %><a class="dropdown-item" href="/">ログアウト</a>
+          <% end %>
           <a class="dropdown-item" href="#">♪♪♪</a>
         </div>
       </li>

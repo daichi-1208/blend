@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
-
-  #get 'relationships/create'
-  #get 'relationships/destroy'
-  #get 'favorites/create'
-  #get 'favorites/destroy'
   root 'home#top'
+  get "/home/about", to:'home#about'
 #ユーザー側ルート
   devise_for :users, controllers: {
     sessions: 'devise/user/sessions',
@@ -13,14 +9,14 @@ Rails.application.routes.draw do
     registrations: 'devise/user/registrations'
   } 
 
-  resources :users do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
     get :follows, on: :member # 追加
     get :followers, on: :member # 追加
   end
     
   resources :themes, only: [:index, :show] do
-    resources :posts, except: [:edit] do
+    resources :posts, except: [:edit, :update] do
       resource :favorites, only: [:create, :destroy]
     end
   end
@@ -38,8 +34,6 @@ Rails.application.routes.draw do
     resources :themes, except: [:destroy]
     resources :users
   end
-
-
 #ここまで
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
