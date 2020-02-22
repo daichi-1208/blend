@@ -1,37 +1,42 @@
+<br>
 <h1 class="text-center">新規カクテル投稿</h1>
-
 <div class="create-theme-post">
     <%= form_for [@theme, @post] do |f| %>
-        <div class="field">
-            <label class="image">カクテル画像</label>
+        <div class="col-sm-5">
+            <label class="image"><h5><i class="fas fa-camera fa-fw"></i> カクテル画像</h5></label>
             <%= f.attachment_field :image %>
         </div>
+        <br>
         <div class="col-sm-7">
-            <%= f.label :カクテル名 %><br>
+            <h5><i class="fas fa-pencil-alt fa-fw"></i> カクテル名</h5>
             <%= f.text_field :name, :size=>"1", class:"form-control" %>
         </div>
+        <br>
         <div class="col-sm-12">
-            <%= f.label :カクテル説明 %><br>
+            <h5><i class="fas fa-glass-cheers fa-fw"></i> カクテル説明</h5>
             <%= f.text_area :introduction, :size=>"20x7", class:"form-control" %>
         </div>
         <%= f.nested_fields_for :materials do |i| %>
-            <div class="form-group row">
-                <div class="col-sm-5">
-                    <%= f.label :材料 %><%= i.text_field :name, class:"form-control mb-2" %>
+            <form>
+                <div class="form-row">
+                    <div class="col-sm-3">
+                        <h5><i class="fas fa-vial fa-fw"></i> 材料</h5><%= i.text_field :name, class:"form-control" %>
+                    </div>
+                    <div class="col-sm-3">
+                        <h5><i class="fas fa-blender fa-fw"></i> 分量</h5><%= i.text_field :quantity, class:"form-control" %>
+                    </div>
+                    <div class="col-sm-6">
+                        <%= i.remove_nested_fields_link do %><button type="submit" class="btn btn-danger">削除</button>
+                        <% end %>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <%= f.label :分量 %><%= i.text_field :quantity, class:"form-control mb-2" %>
-                </div>
-                <div class="col-sm-1">
-                    <p>ml</p>
-                <div class="col-sm-2">
-                    <%= i.remove_nested_fields_link '削除' %>
-                </div>
-            </div>
+            </form>
         <% end %>
-        <div class="submit">
-            <%= f.submit "登録する" %>
+        <br>
+        材料を追加する<%= f.add_nested_fields_link :materials do %><i class="fas fa-plus-circle fa-fw fa-lg"></i>
+        <% end %>
+        <div class="text-center">
+            <%= f.submit "登録する", class:"btn btn-dark btn-lg", type: "button" %>
         </div>
-        <%= f.add_nested_fields_link :materials, "追加", class: "btn btn-outline-primary", type: "button" %>
     <% end %>
 </div>

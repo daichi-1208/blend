@@ -1,19 +1,28 @@
 <br>
 <div class="head">
     <div class="text-center">
-        <h1>Welcome to <strong>Blend</strong> <i class="fas fa-cocktail fa-fw"></i></h1><br>
+        <h1><strong>Blend</strong> <i class="fas fa-cocktail fa-fw"></i></h1><br>
         あなたのクソみたいな酒カスlifeを一緒に盛り上げるサービスです<br>
         今日もアルコール入れて脳味噌を溶かしていきましょう
     </div>
 </div>
 <br>
-<div class="new-post-top4">
+<div class="text-center random-theme-1">
+    <% @random.each do |t| %>
+        <div>
+            <%= attachment_image_tag t, :image, size:"280x250", fallback: "no_image.jpg", class: "img-thumbnail" %><br><br>
+            <%= link_to "このテーマでカクテルを作ってみる", new_theme_post_path(t.id), class:"btn btn-dark", type: "button" %>
+        </div>
+    <% end %>
+</div>
+<br>
+<div class="new-post-top6">
     <div class="text-center">
     <h3>New post cocktails</h3><br>
         <div class="row">
             <% @new_posts.each do |n| %>
                 <div class="col-2 mb-1">
-                    <%= link_to theme_post_path(n.theme.id, n.id) do %><%= attachment_image_tag n, :image, size:"120x120", fallback: "no_image.jpg" %><br>
+                    <%= link_to theme_post_path(n.theme.id, n.id) do %><%= attachment_image_tag n, :image, size:"200x200", fallback: "no_image.jpg", class: "img-thumbnail" %><br>
                     <% end %>
                     <%= n.name %><br>
                     <i class="far fa-star fa-fw star-color"></i></span><%= n.favorites.count%>
