@@ -22,15 +22,19 @@
     background-blend-mode:lighten;
     }
 
-    .container {
-    background-color:rgba(255, 255, 255, 0.459);
-    width:  900px;
-    }
-
-    //body {
-        //color: rgba(53, 53, 53, 0.9)/* 文字色指定 */
-    //}
-
     body {
         font-family: 'Andale Mono','Hannotate SC',sans-serif;
         }
+
+        .container {
+            background-color:rgba(255, 255, 255, 0.459);
+            width:  900px;
+            min-height: 700px;
+            margin-bottom: 40px;
+            }
+
+
+//home.html
+            .head {
+                background-color: rgba(255, 255, 255, 0.877);
+                }
