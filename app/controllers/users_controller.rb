@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @theme = Theme.find(params[:id])
         @posts = @user.posts
     end
 

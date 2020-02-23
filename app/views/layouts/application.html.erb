@@ -59,17 +59,31 @@
       <% end %>
     </div>
   </nav>
-      <div class ="container">
-        <div class="mx-auto" style="width: 800px;">
-          <%= yield %>
-        </div>
-      </div>
 
-<div class="text-center">
-  <footer class="fixed-bottom navbar navbar-expand-lg navbar-dark bg-dark">
-      <span class="text-muted">©︎ Blend</span>
-  </footer>
+  <% if request.path_info == "/" %>
+    <div class="main-visual">
+      <div class="main-visual-content">
+        <p class="main-visual-text">
+        <h3>ようこそ <strong>Blend</strong> へ</h3><br>       
+        テーマに合わせてじぶんだけのオリジナルカクテルを作ろう！<br>
+        めざせベストバーテンダー！
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class ="container">
+      <div class="mx-auto" style="width: 80%;">
+        <%= yield %>
+      </div>
   </div>
+
+  <footer class="footer">
+    <div class="text-center">
+      <span class="text-muted"><strong>©︎ Blend</strong></span>
+    </div>
+  </footer>
+  <br>
 
 </body>
 </html>
