@@ -7,6 +7,9 @@ class Post < ApplicationRecord
     has_many :favorites
     accepts_nested_attributes_for :materials, allow_destroy: true
 
+    validates :name, presence: true
+    validates :introduction, presence: true
+
     def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
     end
