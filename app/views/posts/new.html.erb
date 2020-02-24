@@ -2,42 +2,47 @@
 <h1 class="text-center"><strong><%= @theme.name %></strong>でカクテル作り</h1>
 <br>
 <%= form_for [@theme, @post] do |f| %>
-    <div class="create-theme-post">
-        <div class="col-sm-5">
-            <label class="image"><h5><i class="fas fa-camera fa-fw"></i> カクテル画像</h5></label>
-            <%= f.attachment_field :image %>
-        </div>
-        <br>
+    <div class="row">
         <div class="col-sm-7">
             <h5><i class="fas fa-pencil-alt fa-fw"></i> カクテル名</h5>
             <%= f.text_field :name, :size=>"1", class:"form-control" %>
         </div>
-        <br>
-        <div class="col-sm-12">
+        <div class="col-sm-5">
+            <label class="image"><h5><i class="fas fa-camera fa-fw"></i> カクテル画像</h5></label>
+            <%= f.attachment_field :image %>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
             <h5><i class="fas fa-glass-cheers fa-fw"></i> カクテル説明</h5>
-            <%= f.text_area :introduction, :size=>"20x7", class:"form-control" %>
-        </div><br>
-        <form>
-            <%= f.nested_fields_for :materials do |i| %>
-                <div class="form-row">
-                    <div class="col-sm-3">
-                        <h5><i class="fas fa-vial fa-fw"></i> 材料</h5><%= i.text_field :name, class:"form-control" %>
+            <%= f.text_area :introduction, :size=>"20x7", placeholder:"特徴や作り方などを記入してください", class:"form-control" %>
+        </div>
+    </div>
+    <br>
+
+    <%= f.nested_fields_for :materials do |i| %>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <a class="fas fa-vial fa-fw"></a>材料<%= i.text_field :name, class:"col-9" %>
                     </div>
-                    <div class="col-sm-3">
-                        <h5><i class="fas fa-blender fa-fw"></i> 分量</h5><%= i.text_field :quantity, class:"form-control" %>
+                    <div class="col-5">
+                        <a class="fas fa-blender fa-fw"></a>分量<%= i.text_field :quantity, placeholder:"0", class:"col-5" %> ml
                     </div>
-                    <div class="col-sm-6">
-                        <%= i.remove_nested_fields_link do %><button type="submit" class="btn btn-danger">削除</button>
+                    <div class="col-3">
+                        <%= i.remove_nested_fields_link do %><button type="submit" class="btn btn-danger btn-sm col-5">削除</button>
                         <% end %>
                     </div>
                 </div>
-            <% end %>
-        </form>
-        <br>
-        材料を追加する<%= f.add_nested_fields_link :materials do %><i class="fas fa-plus-circle fa-fw fa-lg"></i>
-        <% end %>
-        <div class="text-center">
-            <%= f.submit "登録する", class:"btn btn-dark" %>
+            </div>
         </div>
+        <br>
+    <% end %>
+    材料を追加する<%= f.add_nested_fields_link :materials do %><i class="fas fa-plus-circle fa-fw fa-lg"></i>
+    <% end %>
+    <div class="text-center">
+        <%= f.submit "登録する", class:"btn btn-dark" %>
     </div>
 <% end %>

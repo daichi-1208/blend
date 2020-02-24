@@ -1,23 +1,25 @@
-users#edit
-
-<h3>ユーザー情報編集</h3>
-
-<%= form_for(@user) do |f| %>
-    <div class="edit-user">
-        <div class="field">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: "name" %>
-        </div>
-        <div class="field">
-            <%= f.label :image %>
-            <%= f.attachment_field :image, class: "user_image" %>
-        </div>
-        <div class="field">
-            <%= f.label :introduction %>
-            <%= f.text_area :introduction, class: "introduction" %>
-        </div>
-        <div class="actions">
-            <%= f.submit 'ユーザー情報を更新する' %>
-        </div>
-    </div>
-<% end %>
+<br>
+<h3 class="text-center">ユーザー情報編集</h3>
+<br>
+            <%= form_for(@user) do |f| %>
+                <div class="edit-user">
+                    <div class="col-sm-4">
+                        <%= f.label :ユーザーネーム %>
+                        <%= f.text_field :name, class: "name", class:"form-control" %>
+                    </div>
+                    <br>
+                    <div class="col-sm-5">
+                        <%= f.label :プロフィール画像 %><br>
+                        <%= f.attachment_field :image, class: "user_image" %>
+                    </div>
+                    <br>
+                    <div class="col-sm-9">
+                        <%= f.label :自己紹介 %><br>
+                        <%= f.text_area :introduction, class: "introduction", class:"form-control" %>
+                    </div>
+                    <br>
+                    <div class="col">
+                        <%= f.submit 'ユーザー情報を更新する', class:"btn btn-dark" %>
+                    </div>
+                </div>
+            <% end %>
