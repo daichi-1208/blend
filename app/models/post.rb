@@ -3,8 +3,8 @@ class Post < ApplicationRecord
     attachment :image
     belongs_to :user
     belongs_to :theme
-    has_many :materials
-    has_many :favorites
+    has_many :materials, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     accepts_nested_attributes_for :materials, allow_destroy: true
 
     validates :name, presence: true
