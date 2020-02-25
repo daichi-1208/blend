@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
 
   def self.create_all_ranks
-    User.find(Relationship.group(:follower_id).order('count(follower_id)').limit(5).pluck(:follower_id))
+    User.find(Relationship.group(:follower_id).order('count(follower_id) desc').limit(5).pluck(:follower_id))
   end
 
 end

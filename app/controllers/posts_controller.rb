@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.new(post_params)
         @post.theme_id = params[:theme_id]
-        if  @post.save!
+        if  @post.save
             redirect_to theme_path(params[:theme_id])
             else
             @theme = Theme.find(params[:theme_id])
@@ -25,10 +25,8 @@ class PostsController < ApplicationController
 
     def destroy
 		@post = Post.find(params[:id])
-		if @post.destroy
-			redirect_to user_path(params[:user_id])
-		else
-		end
+		@post.destroy
+		redirect_to user_path(current_user)
 	end
 
     private
