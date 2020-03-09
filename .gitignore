@@ -31,3 +31,6 @@
 /config/master.key
 
 /.env
+
+/public/uploads/*
+!/public/uploads/.keep
