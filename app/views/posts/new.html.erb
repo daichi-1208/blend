@@ -2,6 +2,7 @@
 <h1 class="text-center"><strong><%= @theme.name %></strong>でカクテル作り</h1>
 <br>
 <%= form_for [@theme, @post] do |f| %>
+<%= render "layouts/errors_messages", model: f.object %>
     <div class="row">
         <div class="col-sm-7">
             <h5><i class="fas fa-pencil-alt fa-fw"></i> カクテル名</h5>

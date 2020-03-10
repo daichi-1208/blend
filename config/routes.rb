@@ -11,12 +11,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
-    get :follows, on: :member # 追加
-    get :followers, on: :member # 追加
+    get :follows, on: :member
+    get :followers, on: :member
   end
     
   resources :themes, only: [:index, :show] do
     resources :posts, except: [:edit, :update] do
+      resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
   end
