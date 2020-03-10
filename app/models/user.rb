@@ -8,8 +8,9 @@ class User < ApplicationRecord
 
     attachment :image
     has_many :posts
-    has_many :favorites
+    has_many :favorites, dependent: :destroy
     has_many :favorite_posts, through: :favorites, source: :post
+    has_many :post_comments, dependent: :destroy
 
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower

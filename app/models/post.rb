@@ -6,6 +6,7 @@ class Post < ApplicationRecord
     has_many :materials, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :tags, dependent: :destroy
+    has_many :post_comments, dependent: :destroy
     accepts_nested_attributes_for :materials, allow_destroy: true
 
     validates :name, presence: true
