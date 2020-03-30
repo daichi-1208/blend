@@ -60,8 +60,6 @@ rails s -b 0.0.0.0
 
 # Author
 
-作成情報を列挙する
-
 * 作成者 daichi-1208
 * E-mail daidaichi1208@gmail.com
 
