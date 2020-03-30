@@ -1,8 +1,6 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# Blend
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
-
-"hoge"が何かを簡潔に紹介する
+テーマを軸に自分だけのオリジナルカクテルを考えて投稿、共有するWebサービスです
 
 # DEMO
 
@@ -11,6 +9,7 @@
 # Features
 
 "hoge"のセールスポイントや差別化などを説明する
+
 
 # Requirement
 
@@ -45,15 +44,9 @@ python demo.py
 
 作成情報を列挙する
 
-* 作成者
-* 所属
-* E-mail
+* 作成者 daichi-1208
+* E-mail daidaichi1208@gmail.com
 
 # License
-ライセンスを明示する
 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+©️Blend
