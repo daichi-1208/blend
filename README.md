@@ -5,6 +5,7 @@
 # DEMO
 
 "hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+<img width="1427" alt="スクリーンショット 2020-03-30 16 28 12" src="https://user-images.githubusercontent.com/58224319/77886581-158d3480-72a4-11ea-9629-f83b60617e57.png">
 
 # Features
 
