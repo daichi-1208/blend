@@ -5,9 +5,9 @@
 # DEMO
 
 TOPページです。以下の情報が閲覧できます。
-・カクテルランキング
-・バーテンダーランキング(投稿者)
-・新着カクテル
+*カクテルランキング
+*バーテンダーランキング(投稿者)
+*新着カクテル
 <img width="1427" alt="スクリーンショット 2020-03-30 16 28 12" src="https://user-images.githubusercontent.com/58224319/77886581-158d3480-72a4-11ea-9629-f83b60617e57.png">
 
 テーマ一覧からテーマを選択すると以下のページになります。
@@ -27,32 +27,36 @@ TOPページです。以下の情報が閲覧できます。
 
 # Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
-* huga 3.5.2
-* hogehuga 1.0.2
+* ruby '2.5.7'
+* rails '5.2.4'
+* gem 'devise'
+* gem 'bootstrap' '4.2.1'
+* gem 'jquery-rails'
+* gem 'refile'
+* gem 'refile-mini_magick'
+* gem 'nested_form_fields'
 
 # Installation
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+ライブラリはgemfileに記述し、bundle installで導入します。
 
 ```bash
-pip install huga_package
+bundle install
 ```
 
 # Usage
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+* DEMOの実行方法
 
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+git clone https://github.com/blend/~
+cd blend
+rails s -b 0.0.0.0
 ```
 
 # Note
 
-注意点などがあれば書く
+特になし
 
 # Author
 
